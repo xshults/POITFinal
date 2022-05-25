@@ -1,0 +1,43 @@
+<mat-progress-bar
+          class="example-margin"
+
+          mode="determinate"
+          [value]= "tempForDisplay"
+          style="color: red;height: 20px;width: 60%;"
+        >
+      </mat-progress-bar>
+      <mwl-gauge
+      [max]="100"
+      [dialStartAngle]="0"
+      [dialEndAngle]="180"
+      [value]="tempForDisplay"
+      [animated]="true"
+      [animationDuration]="1"
+
+    >
+    </mwl-gauge>
+<div>
+    <ngx-charts-line-chart
+    [view]="view"
+    [scheme]="colorScheme"
+    [legend]="legend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="xAxis"
+    [yAxis]="yAxis"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [timeline]="timeline"
+    [results]="multi"
+
+
+    (select)="onSelect($event)"
+    (activate)="onActivate($event)"
+    (deactivate)="onDeactivate($event)"
+    >
+  </ngx-charts-line-chart>
+</div>
+<br>
+<div>
+  <li *ngFor="let item of items">Temperature: {{item.temp}} Humidity: {{item.hum}}</li>
+</div>

@@ -1,0 +1,23 @@
+<div>
+  <button mat-raised-button color="primary" (click) = "onStart()">Start</button>
+  <button mat-raised-button color="primary" (click) = "onStop()">Stop</button>
+  <button mat-raised-button color="primary" (click) = "onClose()">Close</button>
+  <button mat-raised-button color="primary" (click) = "onShowAll()">Show All</button>
+</div>
+<mat-slider
+ (input)="onInputChange($event)"
+  min="1"
+  max="10"
+  step="1"
+   >
+</mat-slider>
+<h3>Multiplier: {{multiplier}}</h3>
+
+<div *ngIf="isAllGraph; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <app-show-all></app-show-all>
+</ng-template>
+<ng-template #elseBlock>
+  <app-line-chart [isPrinting] = "isPrinting"></app-line-chart>
+</ng-template>
+
